@@ -10,9 +10,7 @@ var mongoose = require('mongoose'),
  */
 exports.create = function(req, res) {
 	var Organization = new Organization(req.body);
-	Organization.owner = req.owner;
-	Organization.instructors = req.instructors;
-	Organization.followers = req.followers;
+	Organization.owner = req.user;
 
 	Organization.save(function(err) {
 		if (err) {
